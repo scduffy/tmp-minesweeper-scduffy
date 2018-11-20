@@ -83,9 +83,7 @@ public class GameBoard
             {
                 grid[r][c].incrementAdjacentMineCount();
             }
-            catch(Exception e)
-            {
-            }
+            catch(Exception e){}
         }
     }
     

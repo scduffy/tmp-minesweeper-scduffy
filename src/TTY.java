@@ -28,9 +28,10 @@ public class TTY
                 System.in.read(); // return
                 System.in.read();
             }
-            catch(Exception e)
-            {}
+            catch(Exception e){}
+            
             System.out.println("r = " + r + " c = " + c + " choice " + choice);
+            
             if (choice == 'M' || choice == 'm')
                 b.markBlockAsMine(r,c);
             else
