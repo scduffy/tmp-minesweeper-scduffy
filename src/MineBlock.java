@@ -35,12 +35,15 @@ public class MineBlock extends Block
         return markedAsMine;
     }
     
+    /**
+     * Does nothing because it does not have a number value to increment.
+     */
     public void incrementAdjacentMineCount()
-    {
-        return;
-    }
+    {}
     
-    //TODO: Remove this tester method
+    /**
+     * Displays the mine as "M" if marked and "." otherwise.
+     */
     @Override
     public String displayAs()
     {
@@ -49,6 +52,9 @@ public class MineBlock extends Block
         return ".";
     }
     
+    /**
+     * Returns false because a mine cannot be exposed without losing the game.
+     */
     @Override
     public boolean isExposed()
     {
@@ -64,6 +70,9 @@ public class MineBlock extends Block
         return true;
     }
 
+    /**
+     * Returns false because mines cannot have a numerical value.
+     */
     @Override
     public boolean isZero()
     {

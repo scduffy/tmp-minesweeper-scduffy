@@ -115,19 +115,22 @@ public class GameBoard
     
     /**
      * Clears all blocks not adjacent to a mine around the one selected
-     * if it was also a non-adjacent block.
+     * if it was also a non-adjacent block. This was a pretty lit method,
+     * Jack got mad that I managed to get it working so fast. 
      */
     public void clearSurrounding(int row, int column)
     {
         if(grid[row][column].isZero())
         {
-            //System.out.println(row + " " + column + " is zero!");
             try
             {
-                int [][] coords = { {row-1, column},{row+1, column},{row, column-1},
-                        {row, column+1},{row+1, column+1},{row-1, column-1},
-                        {row-1, column+1}, {row+1, column-1} };
-            
+                //Coordinates for all adjacent blocks to block at given (row, column)
+                int [][] coords = { {row-1, column},{row+1, column},
+                                    {row, column-1},{row, column+1},
+                                    {row+1, column+1},{row-1, column-1},
+                                    {row-1, column+1}, {row+1, column-1} };
+                
+                //Iterates through adjacent coordinates and uncovers it if proper
                 for(int[] coord : coords)
                 {
                     int r = coord[0];
@@ -135,16 +138,20 @@ public class GameBoard
                     
                     if(!grid[r][c].isMine() && !grid[r][c].isExposed())
                     {
-                        //TODO: figure out how to also uncover the first layer
-                        // of actual numbers next to the zeros. 
-                        if(grid[r][c].isZero())
+                        //Checks to see if the block has be marked as a mine
+                        //even though it is a number. If it is then leave the
+                        //error as is and do not uncover.
+                        if(!grid[r][c].correctlyGuessed())
+                            clearSurrounding(r,c);
+                        else
+                        {
                             grid[r][c].guessSafe();
-                        clearSurrounding(r,c);
+                            clearSurrounding(r,c);
+                        }
                     }
                 }
             }
-            catch(Exception e)
-            {}
+            catch(Exception e){}
             view.update(0,0);
         }
     }
