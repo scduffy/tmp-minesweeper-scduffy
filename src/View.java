@@ -58,3 +58,38 @@ class TTYView extends aView
         System.out.println("R\n");
     }
 }
+
+class TestView extends aView
+{
+//	public void update(int _r, int _c)
+//	{
+//		for(int i = 0; i < model.BOARD_SIZE; i++)
+//        {
+//            for(int j = 0; j < model.BOARD_SIZE; j++)
+//            {
+//                System.out.println(model.displayAs(i, j));
+//            }
+//            System.out.println("");
+//        }
+//	}
+	public void update(int _r, int _c)
+    {
+        //Labels the top row for easier coordinate id use by user. 
+        String topCoords = "  ";
+        for(int i = 0; i < model.BOARD_SIZE; i++)
+            topCoords += i + " ";
+        
+        System.out.println(topCoords + "C");
+        
+        for(int i = 0; i < model.BOARD_SIZE; i++)
+        {
+            System.out.print(i + " ");
+            for(int j = 0; j < model.BOARD_SIZE; j++)
+            {
+                System.out.print(model.displayAs(i, j) + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("R\n");
+    }
+}

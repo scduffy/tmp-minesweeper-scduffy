@@ -9,7 +9,7 @@ import java.util.Random;
 public class GameBoard
 {
     //Attributes
-    protected int BOARD_SIZE = 10;
+    protected int BOARD_SIZE = 9;
     protected Block[][] grid = new Block[BOARD_SIZE][BOARD_SIZE];
     protected View view;
     
@@ -17,6 +17,7 @@ public class GameBoard
      * Initializes the GameBoard object so that it can hold blocks.
      */
     public GameBoard(View v)
+    //public GameBoard()
     {
         //BOARD_SIZE = 10;
         view = v;
@@ -32,6 +33,7 @@ public class GameBoard
         int newC;
         
         for(int i = 0; i < BOARD_SIZE; i++)
+        {
             for(int j = 0; j < BOARD_SIZE; j++)
             {
                 newR = rand.nextInt(BOARD_SIZE);
@@ -42,6 +44,7 @@ public class GameBoard
                 grid[newR][newC] = temp;
                 
             } 
+        }
         
         //Increments surrounding number blocks
         for(int i = 0; i < BOARD_SIZE; i++)

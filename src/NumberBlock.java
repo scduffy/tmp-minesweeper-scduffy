@@ -7,8 +7,8 @@
 public class NumberBlock extends Block
 {
     //Attributes
-    private int adjacentMineCount;
-    private boolean exposed;
+	protected int adjacentMineCount;
+	protected boolean exposed;
     
     /**
      * Initialize NumberBlock to state as before game begins.
@@ -49,11 +49,12 @@ public class NumberBlock extends Block
     @Override
     public String displayAs()
     {
-        if(markedAsMine)
-            return "M";
-        if(exposed)
-            return adjacentMineCount + "";
-        return ".";
+//        if(markedAsMine)
+//            return "M";
+//        if(exposed)
+//            return adjacentMineCount + "";
+//        return ".";
+    	return adjacentMineCount + "";
     }
 
     /**
