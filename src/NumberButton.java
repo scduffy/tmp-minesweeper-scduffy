@@ -102,46 +102,55 @@ public class NumberButton extends JButton implements MouseListener
 			if(parsed == 1)
 			{
 				this.setText("1");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.BLUE);
 			}
 			else if(parsed == 2)
 			{
 				this.setText("2");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.GREEN);
 			}
 			else if(parsed == 3)
 			{
 				this.setText("3");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.RED);
 			}
 			else if(parsed == 4)
 			{
 				this.setText("4");
+				this.setContentAreaFilled(false);
 				this.setForeground(new Color(0,0,128));
 			}
 			else if(parsed == 5)
 			{
 				this.setText("5");
+				this.setContentAreaFilled(false);
 				this.setForeground(new Color(165,42,42));
 			}
 			else if(parsed == 6)
 			{
 				this.setText("6");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.CYAN);
 			}
 			else if(parsed == 7)
 			{
 				this.setText("7");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.BLACK);
 			}
 			else if(parsed == 8)
 			{
 				this.setText("8");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.GRAY);
 			}
 			else
 			{
 				this.setText("0");
+				this.setContentAreaFilled(false);
 				this.setForeground(Color.GRAY);
 			}
 			
