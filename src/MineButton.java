@@ -1,8 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
@@ -29,14 +31,25 @@ public class MineButton extends JButton implements MouseListener
 	{
 		if(arg0.getButton() == MouseEvent.BUTTON1)
 		{
-			//TODO: YOU LOSE
+			
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						Popup frame = new Popup(false);
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			
 			this.isMarked = true;
 			repaint();
 		}
 		else if(SwingUtilities.isRightMouseButton(arg0))
 		//else if(arg0.getButton() == MouseEvent.BUTTON2)
 		{
-			this.isMarked = false;
+			this.isMarked = true;
 			repaint();
 		}
 	}

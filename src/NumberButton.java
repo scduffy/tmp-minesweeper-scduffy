@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.SwingUtilities;
 
 public class NumberButton extends JButton implements MouseListener
 {
@@ -14,6 +15,7 @@ public class NumberButton extends JButton implements MouseListener
 	//private Dimension size = new Dimension(36,36);
 	
 	private boolean isUncovered = false;
+	private boolean isMarked = false;
 	
 	NumberBlock nb;
 	private String adjacentMines;
@@ -38,6 +40,18 @@ public class NumberButton extends JButton implements MouseListener
 		{
 			isUncovered = true;
 			repaint();
+		}
+		else if(SwingUtilities.isRightMouseButton(arg0))
+		{
+			if(!isUncovered)
+			{
+				if(isMarked)
+					this.isMarked = true;
+				else
+					this.isMarked = false;
+				repaint();
+				//TODO: Setup appearance if it is marked.
+			}
 		}
 	}
 
