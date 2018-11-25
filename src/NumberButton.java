@@ -7,6 +7,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
+/**
+ * This is my code! It's goal is to be an number button.
+ * CS 312 - Assignment 8
+ * @author scduffy
+ * @version 1.0 11/16/2018
+ */
 public class NumberButton extends JButton implements MouseListener
 {
 	
@@ -26,7 +32,6 @@ public class NumberButton extends JButton implements MouseListener
 	public NumberButton(String adjacentMines)
 	{
 		super();
-		//TODO: Replace this with the adjacent mine count
 		enableInputMethods(true);   
 		addMouseListener(this);
 		nb = new NumberBlock();
@@ -45,12 +50,8 @@ public class NumberButton extends JButton implements MouseListener
 		{
 			if(!isUncovered)
 			{
-				if(isMarked)
-					this.isMarked = true;
-				else
-					this.isMarked = false;
+				isMarked = true;
 				repaint();
-				//TODO: Setup appearance if it is marked.
 			}
 		}
 	}
@@ -100,12 +101,20 @@ public class NumberButton extends JButton implements MouseListener
 	
 	@Override
 	public void paintComponent(Graphics g)
-	{
+	{	
 		if(!isUncovered)
 		{
 			super.paintComponent(g);
 			g.setColor(Color.RED);
 			g.drawRect(0, 0, getWidth(), getHeight());
+			
+			if(isMarked)
+			{
+				super.paintComponent(g);
+				this.setFont(this.getFont().deriveFont(20f));
+				this.setText("M");
+				this.setForeground(Color.RED);
+			}
 		}
 		else
 		{
@@ -167,8 +176,7 @@ public class NumberButton extends JButton implements MouseListener
 				this.setContentAreaFilled(false);
 				this.setForeground(Color.GRAY);
 			}
-			
-			
+
 			g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
 		}
 	}

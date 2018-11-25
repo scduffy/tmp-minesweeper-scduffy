@@ -1,18 +1,23 @@
-import java.awt.Container;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * This is my code! It's goal is to be a GUI.
+ * CS 312 - Assignment 8
+ * @author scduffy
+ * @version 1.0 11/16/2018
+ */
 public class Minesweeper extends JFrame
 {
-
+	private static final long serialVersionUID = 1L;
 	private JFrame frame;
 	View v;
 	GameBoard gb;
+	List<MineButton> minesActive = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -49,8 +54,7 @@ public class Minesweeper extends JFrame
 		frame = new JFrame();
 		frame.setBounds(100, 100, 650, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		//gb = new GameBoard();
+
 		Block [][] grid = gb.grid;
 		int size = gb.BOARD_SIZE;
 		Block [] arr = new Block[size*size];
@@ -66,28 +70,39 @@ public class Minesweeper extends JFrame
 			for(int j = 0; j < size; j++)
 			{
 				arr[arrIndex] = grid[i][j];
-				//gb.guessBlockIsSafe(i, j);
 				System.out.println(gb.grid[i][j].displayAs());
 				arrIndex++;
 			}
 		}
 		
-		//Container pane = getContentPane();
 		frame.setLayout(new GridLayout(size, size));
+		
 	    for (int i = 0; i < (size*size); i++) 
 	    {
-	      //JButton button = new JButton(Integer.toString(i + 1));
-	    	//TODO: Possibly copy code from initial design to put into one long array and do standard switching. Then do adjacent mine adding.
-	    	JButton button;
-	    	
 	    	if(arr[i].isMine())
-	    		button = new MineButton();
+	    	{
+	    		MineButton button = new MineButton(this);
+	    		minesActive.add(button);
+	    		frame.add(button);
+	    	}
 	    	else
-	    		button = new NumberButton(arr[i].displayAs());
-
-	    	frame.add(button);
+	    	{
+	    		NumberButton button = new NumberButton(arr[i].displayAs());
+	    		frame.add(button);
+	    	}
 	    }
 
+	}
+	
+	public boolean checkIfDone()
+	{
+		for(MineButton button : minesActive)
+		{
+			System.out.println("CHECKING BUTTON");
+			if(!button.isMarked)
+				return false;
+		}
+		return true;
 	}
 
 }

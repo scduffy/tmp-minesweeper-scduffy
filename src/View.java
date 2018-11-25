@@ -61,17 +61,6 @@ class TTYView extends aView
 
 class TestView extends aView
 {
-//	public void update(int _r, int _c)
-//	{
-//		for(int i = 0; i < model.BOARD_SIZE; i++)
-//        {
-//            for(int j = 0; j < model.BOARD_SIZE; j++)
-//            {
-//                System.out.println(model.displayAs(i, j));
-//            }
-//            System.out.println("");
-//        }
-//	}
 	public void update(int _r, int _c)
     {
         //Labels the top row for easier coordinate id use by user. 

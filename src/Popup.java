@@ -1,5 +1,4 @@
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,31 +16,18 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
-public class Popup extends JFrame {
+/**
+ * This is my code! It's goal is to notify the player that they won or lost
+ * CS 312 - Assignment 8
+ * @author scduffy
+ * @version 1.0 11/16/2018
+ */
+public class Popup extends JFrame 
+{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private boolean didWin = false;
-	
-
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Popup frame = new Popup(didWin);
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	//private boolean didWin = false;
 	
 	/**
 	 * Create the frame.
